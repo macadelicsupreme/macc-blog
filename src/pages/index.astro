@@ -1,16 +1,58 @@
 ---
-
+import Default from "../layouts/Default.astro";
+import NeuCard from "../components/NeuCard.astro";
+import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 ---
+<Default
+	title='Home'
+	pageTitle='Brutal Theme | Home'
+	description='Brutal is a minimalistic, neobrutalism theme for Astro.'
+>
+	<main class='bg-pink p-6'>
+		<section id='about' class='grid md:grid-cols-8 gap-8 mt-4'>
+			<h2 class='hidden'>About Brutal</h2>
+			<div class='col-span-4'>
+				<Card>
+					<div class='flex flex-col justify-between items-start gap-4'>
+						<p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
+							Brutal theme for <a
+							class='text-white'
+							target='_blank'
+							href='https://astro.build/'>Astro</a
+						>
+						</p>
+						<p class='mt-2 outfit text-xl md:text-3xl lg:text-5xl'>
+							A minimalistic, neobrutalism theme for Astro.
+						</p>
+						<Button target={'_self'} href='/blog/'>
+							Check out the blog &rarr;
+						</Button>
+					</div>
+				</Card>
+			</div>
+			<div class='col-span-2'>
+				<Card>
+					<h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+						Brutal is built with
+					</h2>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+				</Card>
+				<Card>
+					<h2 class='text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif'>
+						What is Brutal?
+					</h2>
+					<p class='poppins'>
+						Brutal is a theme built with Astro, UnoCSS by <a
+						href='https://www.elian.codes/'>Elian</a
+					>. It's a simple, fast, and modern theme that is easy to use and
+						customize. Mainly meant to power blogs and personal websites.
+					</p>
+				</Card>
+			</div>
+		</section>
+		<RecentBlogPosts />
+	</main>
+</Default>
+

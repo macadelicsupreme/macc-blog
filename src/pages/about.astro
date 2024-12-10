@@ -1,5 +1,6 @@
 ---
-const pageTitle= "About Me"
+import BaseNavigation from "../components/layout/BaseNavigation.astro";
+import BaseHead from "../components/layout/BaseHead.astro";
 
 const identity = {
     firstName: "Macc",
@@ -7,43 +8,29 @@ const identity = {
     occupation: "Software Engineer",
     hobbies: ["photography", "coding", "cooking", "reading"],
 };
-
+const pageTitle="About"
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
-
-const happy = true;
-const finished = false;
-const goal = 3;
 ---
 
-{happy && <p>I am happy to be learning Astro!</p>}
+    <BaseNavigation />
+    <main>
+        <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>{pageTitle}</h2>
+        <h2>... and my new Astro site!</h2>
 
-{finished && <p>I finished this tutorial!</p>}
-
-{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-</head>
-<body>
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
-<h1>{pageTitle}</h1>
-<h2>... and my new Astro site!</h2>
-
-<p>This is like my 100th attempt at this blog. I better get this shit done this time.</p>
-<ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-    {identity.hobbies.length >= 2 &&
-            <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
-    }
-</ul>
-<p>My skills are:</p>
-<ul>
-    {skills.map((skill) => <li>{skill}</li>)}
-</ul></body>
-</html>
+        <p>This is like my 100th attempt at this blog. I better get this done this time.</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+            {identity.hobbies.length >= 2 && (
+                    <li>
+                        Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}.
+                    </li>
+            )}
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+            {skills.map((skill) => (
+                    <li>{skill}</li>
+            ))}
+        </ul>
+    </main>
