@@ -10,7 +10,7 @@ if (Astro.props.color === undefined) {
     Astro.props.color = colors[Math.floor(Math.random() * colors.length)];
 }
 
-const { color, ...rest } = Astro.props;
+const { color } = Astro.props;
 ---
 
 <style define:vars={{ color: color }}>
@@ -31,6 +31,6 @@ const { color, ...rest } = Astro.props;
     }
 </style>
 
-<a {...rest} class='brutal-btn'>
+<a class='brutal-btn'>
     <slot />
 </a>
