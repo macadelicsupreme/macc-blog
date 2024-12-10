@@ -1,9 +1,12 @@
 ---
 import Default from "../layouts/Default.astro";
+import { getCollection } from "astro:content";
 import NeuCard from "../components/NeuCard.astro";
 import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
+
+const posts = await getCollection("blog");
 ---
 <Default
 	title='Home'

@@ -1,25 +1,26 @@
 ---
 import { getCollection } from 'astro:content';
-import Default from "../../layouts/Default.astro";
-import BlogPost from "../../components/BlogPost.astro";
-import BlogSummaryCard from "../../components/BlogSummaryCard.astro";
+import BlogSummaryCard from '../../components/BlogSummaryCard.astro';
+import BaseNavigation from "../../components/layout/BaseNavigation.astro";
+import BaseFooter from "../../components/layout/BaseFooter.astro";
 
+// Fetch the blog collection asynchronously
+const posts = await getCollection('blog');
 
-interface Props {
-    posts: CollectionEntry<'blog'>[];
-}
-
-const { posts } = Astro.props;
+// If no posts exist, provide a fallback value
+const hasPosts = posts && posts.length > 0;
 ---
 
-<ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-    {
-        posts.map((post) => {
-            return (
-                    <li>
-                        <BlogPost />
-                    </li>
-            );
-        })
-    }
+<BaseNavigation/>
+<ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {hasPosts ? (
+        posts.map((post) => (
+                <li key={post.slug}>
+                    <BlogSummaryCard post={post} />
+                </li>
+        ))
+    ) : (
+            <p>No posts available. Please check back later!</p>
+    )}
 </ul>
+<BaseFooter/>
