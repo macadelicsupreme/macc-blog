@@ -9,7 +9,6 @@ interface Props {
     count?: number;
 }
 const { count } = Astro.props;
-
 const posts = await getCollection('blog').then((posts) =>
     posts.reverse().slice(0, count ?? 3)
 );
@@ -30,4 +29,4 @@ const posts = await getCollection('blog').then((posts) =>
     </Card>
 </section>
 
-<!-- was running out of memory because the onst posts = await getCollection('blog') was recursing infinitely before i changed it-->
+<!-- was running out of memory because the const posts = await getCollection('blog') was recursing infinitely before i changed it-->

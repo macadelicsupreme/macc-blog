@@ -12,18 +12,22 @@ interface Props {
 const { post } = Astro.props;
 const { title, description, author, image, pubDate } = post.data;
 
+// const slug = post.slug; // Use the slug to generate the post's URL
 ---
 
 <NeuCard>
+    <a href={`/posts/${post.id}`} class="block">
     <div class="flex flex-col gap-4">
-        <img src={image.url} alt={image.alt} class="rounded-md w-full h-48 object-cover" />
+         <img src={image.url} alt={image.alt} class="rounded-md w-full h-48 object-cover" />
 
         <div class="flex flex-col">
             <h2 class="text-2xl font-bold">{title}</h2>
             <p class="text-gray-600 text-sm">By {author}}</p>
             <p class="mt-2 text-gray-800">{description}</p>
         </div>
-
-
+    </div>
+    </a>
+    <div class="flex flex-col">
+        <h2 class="text-align-center text-sm font-bold">{pubDate}</h2>
     </div>
 </NeuCard>
