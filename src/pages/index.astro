@@ -1,61 +1,67 @@
 ---
-import Default from "../layouts/DefaultLayout.astro";
 import { getCollection } from "astro:content";
-import NeuCard from "../components/NeuCard.astro";
-import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
-import Button from "../components/Button.astro";
-import Card from "../components/Card.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import BaseNavigation from "../components/layout/BaseNavigation.astro";
 
+export interface Props {
+    color?: string;
+    description: string;
+    title: string;
+    pageTitle: string;
+}
+
+const navigationItems = [
+    { name: 'Home', url: '/' },
+    { name: 'Blog', url: '/blog/' },
+    { name: 'About', url: '/about/'}
+];
+
+
+// Destructure props
+const { color = "custom-navbar-bg", description, pageTitle='pageTitle?', title='macc blogs' } = Astro.props;
+
+// Fetch posts (if you plan to use them in the future)
 const posts = await getCollection("blog");
 ---
-<Default
-	title='Home'
-	pageTitle='Brutal Theme | Home'
-	description='Brutal is a minimalistic, neobrutalism theme for Astro.'
->
-	<main class='bg-pink p-6'>
-		<section id='about' class='grid md:grid-cols-8 gap-8 mt-4'>
-			<h2 class='hidden'>About Brutal</h2>
-			<div class='col-span-4'>
-				<Card>
-					<div class='flex flex-col justify-between items-start gap-4'>
-						<p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
-							Brutal theme for <a
-							class='text-white'
-							target='_blank'
-							href='https://astro.build/'>Astro</a
-						>
-						</p>
-						<p class='mt-2 outfit text-xl md:text-3xl lg:text-5xl'>
-							A minimalistic, neobrutalism theme for Astro.
-						</p>
-						<Button target={'_self'} href='/blog/'>
-							Check out the blog &rarr;
-						</Button>
-					</div>
-				</Card>
-			</div>
-			<div class='col-span-2'>
-				<Card>
-					<h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
-						Brutal is built with
-					</h2>
 
-				</Card>
-				<Card>
-					<h2 class='text-2xl md:text-4xl lg:text-6xl mb-4 dm-serif'>
-						What is Brutal?
-					</h2>
-					<p class='poppins'>
-						Brutal is a theme built with Astro, UnoCSS by <a
-						href='https://www.elian.codes/'>Elian</a
-					>. It's a simple, fast, and modern theme that is easy to use and
-						customize. Mainly meant to power blogs and personal websites.
-					</p>
-				</Card>
-			</div>
-		</section>
-		<RecentBlogPosts />
-	</main>
-</Default>
+<DefaultLayout description={description} title={title}>
+    <header class='custom-navbar-bg b-rd-sm border-opacity-20 border-solid border-b-4 border-black flex justify-between p-6 items-center'>
+        {pageTitle && <h1 class='hidden'>{pageTitle}</h1>}
+        <a href='/' title='Back to Home'>
+            <p class='righteous md:text-5xl'>{title}</p>
+        </a>
+        <nav class='hidden md:inline-block'>
+                <h2 class='hidden'>Navigation</h2>
+                <ul class='flex gap-8 poppins'>
+                    {
+                        navigationItems.map((item) => (
+                                <li>
+                                    <a
+                                        class='text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out'
+                                        href={item.url}
+                                        title={`Go to ${item.name}`}
+                                    >
+                                        {item.name}
+                                    </a>
+                                </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+            <nav class='md:hidden flex'>
+                <h2 class='hidden'>Mobile Navigation</h2>
+                <ul>
+                    <li><a href='/blog/'>Blog</a></li>
+                </ul>
+        </nav>
+    </header>
+            <main class="custom-main-bg min-h-screen flex items-center justify-center border-opacity-60 border-rd-sm border-solid border-red">
+                <h1 class="text-center text-2xl font-bold">Welcome to My Blog</h1>
+                <section class="m-1 text-lg">
+                    <ul>Random fact about me 1</ul>
+                    <ul>Random fact about me 2</ul>
+                    <ul>Random fact about me 3</ul>
+                </section>
+            </main>
 
+</DefaultLayout>
