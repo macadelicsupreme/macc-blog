@@ -4,19 +4,17 @@ const { title, description, pageTitle } = Astro.props;
 
 <head>
     <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <meta name='generator' content={Astro.generator} />
+    <link rel="stylesheet" href="style.css" />
+    <link rel='icon' type='image/svg' href='./favicon.svg' />
+    <link
+            rel="preload"
+            href="/fonts/new-amsterdam-regular.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin
+    />
 
-
-    <meta name='title' content={`macc blogs }`} />
-    <meta name='description' content={description} />
-
-
-
-
-    <link rel='icon' type='image/svg' href='/favicon.svg' />
-
-    <title>Brutal Theme | {title}</title>
+    <title>macc blogs</title>
 
     <slot />
 </head>

@@ -1,19 +1,10 @@
 ---
-import { defineConfig } from "unocss";
-const {  posts } = Astro.props;
-import BlogSummaryCard from "./BlogSummaryCard.astro";
-
-
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+const { title, url } = Astro.props
 ---
-
-<ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-    {
-        posts.map((post) => {
-            return (
-                    <li>
-                        <BlogSummaryCard post={post} />
-                    </li>
-            );
-        })
-    }
-</ul>
+<DefaultLayout
+        description="" title="" pageTitle="">
+    <main class='p-2 lg:grid lg:grid-cols-3 flex justify-center'>
+        <slot />
+    </main>
+</DefaultLayout>

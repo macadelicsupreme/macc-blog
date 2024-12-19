@@ -1,6 +1,7 @@
 ---
-import Card from '../Card.astro';
 import { Image } from 'astro:assets';
+import Card from "../Card.astro";
+
 
 interface Props {
     title: string;
@@ -13,8 +14,8 @@ const { title, imgAlt, imgSrc, description } = Astro.props;
 ---
 
 <Card color='white'>
-    <h3 class='poppins text-lg md:text-xl'>{title}</h3>
-    <div class='rounded-lg border-3 border-black my-4 h-56'>
+    <h3 class='ptext-lg md:text-xl'>{title}</h3>
+    <div class='rounded-lg border-solid shadow border-3 border-black my-4 h-56 shadow-black'>
         <Image
                 src={imgSrc}
                 alt={imgAlt}

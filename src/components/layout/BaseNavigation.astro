@@ -1,6 +1,9 @@
 ---
+import '@fontsource/new-amsterdam';
+
 interface Props {
     pageTitle?: string;
+
 }
 
 const navigationItems = [
@@ -12,35 +15,59 @@ const navigationItems = [
 const { pageTitle } = Astro.props;
 ---
 
-
-
-<header class='border-b-4 border-black flex justify-between p-6 items-center'>
-    {pageTitle && <h1 class='hidden'>{pageTitle}</h1>}
-    <a href='/' title='Back to Home'>
-        <p class='righteous md:text-5xl'>Macc Blogs</p>
-    </a>
-    <nav class='hidden md:inline-block'>
-        <h2 class='hidden'>Navigation</h2>
-        <ul class='flex gap-8 poppins'>
-            {
-                navigationItems.map((item) => (
-                        <li>
-                            <a
-                                class='text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out'
-                                href={item.url}
-                                title={`Go to ${item.name}`}
-                            >
-                                {item.name}
-                            </a>
-                        </li>
-                ))
-            }
-        </ul>
-    </nav>
-    <nav class='md:hidden flex'>
-        <h2 class='hidden'>Mobile Navigation</h2>
-        <ul>
-            <li><a href='/blog/'>Blog</a></li>
+<header class="border-b-2 border-black flex justify-center items-center px-4 py-6">
+    <nav class="nav-links">
+        <ul class="flex gap-8 text-lg font-medium new-amsterdam-regular">
+            <li>
+                <a
+                        class="hover:text-green hover:underline transition-all duration-150 ease-in-out"
+                        href="/"
+                        title="Go to Home"
+                >
+                    Home
+                </a>
+            </li>
+            <li>
+                <a
+                        class="hover:text-green hover:underline transition-all duration-150 ease-in-out"
+                        href="/blog/"
+                        title="Go to Blog"
+                >
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a
+                        class="hover:text-green hover:underline transition-all duration-150 ease-in-out"
+                        href="/about/"
+                        title="Go to About"
+                >
+                    About
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
+
+<style>
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 2rem;
+    }
+    li a {
+        text-decoration: none;
+        color: black;
+        transition: color 0.3s ease-in-out;
+    }
+    li a:hover {
+        color: var(--hover-color, green);
+    }
+</style>
