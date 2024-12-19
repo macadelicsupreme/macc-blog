@@ -1,25 +1,25 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import BlogSummaryCard from './BlogSummaryCard.astro';
+
+
 interface Props {
     posts: CollectionEntry<'blog'>[];
-    color: keyof typeof colors;  // This ensures `color` is a key from the `colors` object
-
 }
 
-
-import colors from '../config/colors.json';
-import TestCard from "./TestCard.astro";
-const { posts , color } = Astro.props;
+const { posts } = Astro.props;
 ---
 
-<ul class=''>
-    {
-        posts.map((post) => {
-            return (
-                    <li>
-                        <TestCard post={post}/> {/* Access the color by key */}
-                    </li>
-            );
-        })
-    }
-</ul>
+<div class="">
+    <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {
+            posts.map((post) => {
+                return (
+                        <ul class="border-solid shadow-black p-6">
+                            <BlogSummaryCard post={post} />
+                        </ul>
+                );
+            })
+        }
+    </ul>
+</div>

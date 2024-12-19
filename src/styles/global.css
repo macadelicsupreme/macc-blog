@@ -34,6 +34,16 @@ html {
     font-display: swap;
 }
 
+@font-face {
+     font-family: 'New Amsterdam', sans-serif;
+    src: url('../../fonts/new-amsterdam-regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+.new-amsterdam-regular {
+    font-family: 'New Amsterdam', serif;
+}
 ::-webkit-scrollbar {
     width: 22px;
     background-color: var(--primary);

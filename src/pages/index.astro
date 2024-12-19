@@ -1,67 +1,58 @@
 ---
 import { getCollection } from "astro:content";
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import BaseNavigation from "../components/layout/BaseNavigation.astro";
-
-export interface Props {
-    color?: string;
-    description: string;
-    title: string;
-    pageTitle: string;
-}
-
-const navigationItems = [
-    { name: 'Home', url: '/' },
-    { name: 'Blog', url: '/blog/' },
-    { name: 'About', url: '/about/'}
-];
-
-
-// Destructure props
-const { color = "custom-navbar-bg", description, pageTitle='pageTitle?', title='macc blogs' } = Astro.props;
-
-// Fetch posts (if you plan to use them in the future)
-const posts = await getCollection("blog");
+import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
+import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
+import carolinaImage from '../../public/assets/carolina-in-the-morning.jpg';
 ---
 
-<DefaultLayout description={description} title={title}>
-    <header class='custom-navbar-bg b-rd-sm border-opacity-20 border-solid border-b-4 border-black flex justify-between p-6 items-center'>
-        {pageTitle && <h1 class='hidden'>{pageTitle}</h1>}
-        <a href='/' title='Back to Home'>
-            <p class='righteous md:text-5xl'>{title}</p>
-        </a>
-        <nav class='hidden md:inline-block'>
-                <h2 class='hidden'>Navigation</h2>
-                <ul class='flex gap-8 poppins'>
-                    {
-                        navigationItems.map((item) => (
-                                <li>
-                                    <a
-                                        class='text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out'
-                                        href={item.url}
-                                        title={`Go to ${item.name}`}
-                                    >
-                                        {item.name}
-                                    </a>
-                                </li>
-                        ))
-                    }
-                </ul>
-            </nav>
-            <nav class='md:hidden flex'>
-                <h2 class='hidden'>Mobile Navigation</h2>
-                <ul>
-                    <li><a href='/blog/'>Blog</a></li>
-                </ul>
-        </nav>
-    </header>
-            <main class="custom-main-bg min-h-screen flex items-center justify-center border-opacity-60 border-rd-sm border-solid border-red">
-                <h1 class="text-center text-2xl font-bold">Welcome to My Blog</h1>
-                <section class="m-1 text-lg">
-                    <ul>Random fact about me 1</ul>
-                    <ul>Random fact about me 2</ul>
-                    <ul>Random fact about me 3</ul>
-                </section>
-            </main>
+<DefaultLayout
+        title='Home'
+        pageTitle="Welcome to My Blog"
+        description="Tracking my adventures in software engineering and more."
+>
+    <main class="mt-4 new-amsterdam-regular custom-lavender-texture-bg px-6">
+        <!-- Hero Section -->
+        <section id='hero' class='border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-6 p-6 bg-white shadow-md rounded-lg'>
+            <div class='flex-1'>
+                <h1 class='text-4xl md:text-6xl outfit font-bold mb-4'>Welcome to My Blog</h1>
+                <p class='text-lg md:text-xl mb-6'>
+                    Follow along as I share my experiences in software engineering and explore my hobbies. Dive into stories, lessons, and adventures!
+                </p>
+                <Button target={'_self'} href='/about/'>
+                    Learn More About Me &rarr;
+                </Button>
+            </div>
+        </section>
 
+        <!-- About Section -->
+        <section id='about' class='grid md:grid-cols-8 gap-6 mt-12'>
+            <div class='col-span-4'>
+                <Card>
+                    <h2 class='text-2xl md:text-4xl outfit font-bold mb-4'>About the Blog</h2>
+                    <p class='text-lg'>
+                        This blog is a space where I document my journey through software engineering and beyond. Whether it's new technologies, problem-solving adventures, or personal projects, you'll find it here.
+                    </p>
+                </Card>
+            </div>
+            <div class='col-span-4'>
+                <Card>
+                    <h2 class='text-2xl md:text-4xl outfit font-bold mb-4'>Why Follow Along?</h2>
+                    <p class='text-lg'>
+                        Join me in discovering how to navigate challenges, embrace learning opportunities, and celebrate small wins. Let’s grow and explore together.
+                    </p>
+                </Card>
+            </div>
+        </section>
+
+        <!-- Recent Blog Posts Section -->
+        <div class="col-span-8 items-center">
+            <Card>
+                <RecentBlogPosts/>
+            </Card>
+        </div>
+
+
+    </main>
 </DefaultLayout>

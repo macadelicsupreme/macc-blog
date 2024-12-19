@@ -1,7 +1,5 @@
 ---
-import BaseNavigation from "../components/layout/BaseNavigation.astro";
-import BaseHead from "../components/layout/BaseHead.astro";
-import Default from "../layouts/DefaultLayout.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Card from "../components/Card.astro";
 
 const identity = {
@@ -16,23 +14,34 @@ const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
 
 
 
-            <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>{pageTitle}</h2>
-            <h2>... and my new Astro site!</h2>
-            <p class='m-1 text-2xl md:text-5xl '>This is like my 100th attempt at this blog. I better get this done this time.</p>
-            <ul>
-                <li>My name is {identity.firstName}.</li>
-                <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
-
-                )}
-            </ul>
-
-    <slot/>
-    <Card>
-        <p class='poppins'>My skills are:</p>
+<DefaultLayout
+    title="About"
+    pageTitle="About Me"
+    description="this is a page about me"
+    >
+    <main class="custom-lavender-texture-bg">
+        <h2 class='p-2'>{pageTitle}</h2>
+        <p class=''>This is like my 100th attempt at this blog. I better get this done this time.</p>
         <ul>
-            {skills.map((skill) => (
-                    <li>{skill}</li>
-            ))}
+            <li>My name is {identity.firstName}.</li>
+            <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+
+            )}
         </ul>
-    </Card>
+
+        <slot/>
+        <Card>
+            <div class="bg-bluegray p-2 border-solid">
+                <p class='poppins'>My skills are:</p>
+                <ul>
+                    {skills.map((skill) => (
+                            <li>{skill}</li>
+                    ))}
+                </ul>
+            </div>
+
+        </Card>
+    </main>
+
+</DefaultLayout>
 

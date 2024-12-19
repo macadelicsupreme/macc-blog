@@ -3,10 +3,9 @@ title: 'My First Blog Post'
 pubDate: 2022-07-01
 description: 'This is the first post of my new Astro blog.'
 author: 'Astro Learner'
+imgUrl: "/assets/carolina-in-the-morning.jpg"
 tags: ["astro", "blogging", "learning in public"]
-image:
-  url: "https://images.unsplash.com/photo-1732624579859-a20705f135e5?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  alt: "image for post-1."
+
 
 # (layout: "../../layouts/DefaultLayout.astro")
 ---

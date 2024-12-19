@@ -1,16 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
 import BlogList from "../components/BlogList.astro";
-import TestCard from "../components/TestCard.astro";
-const { title, description, content } = Astro.props;
-// Fetch the blog collection asynchronously
-const posts = await getCollection('blog');
 
+const pageTitle = "My Astro Learning Blog";
+const posts = await getCollection("blog");
 ---
 
-<TestCard content="" ,title="">
-    <main>
-        <BlogList posts={posts} />
-    </main>
-</TestCard>
+<DefaultLayout
+        pageTitle={pageTitle}
+        title="blog posts"
+        description=""
 
+>
+    <main class="border-solid text-lg p-2">
+        <BlogList posts={posts} />
+
+    </main>
+
+</DefaultLayout>

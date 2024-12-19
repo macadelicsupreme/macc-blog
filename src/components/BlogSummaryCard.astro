@@ -1,50 +1,26 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Card from './Card.astro';
-import BaseNavigation from "./layout/BaseNavigation.astro"; // Import the existing Card component
+
+import SummaryCard from "./generic/SummaryCard.astro";
+import Button from "./Button.astro";
 
 interface Props {
     post: CollectionEntry<'blog'>;
-    color?: string;
 }
 
-// Extract props passed to the component
-const { post, color } = Astro.props;
-const { title, description, author, image, pubDate } = post.data;
+const { post } = Astro.props;
 ---
 
-
-<Card color={color}>
-    <!-- Blog summary wrapper with square-specific styles -->
-    <a href={`/posts/${post.id}`} class="block">
-        <!-- Force square layout with utility classes -->
-        <!--<div class="square-wrapper">-->
-            <div class="">
-                <h2 class="blog-title">{title}</h2>
-                <p class="blog-author">By {author}</p>
-                <p class="blog-description">{description}</p>
-            </div>
-        <!--</div>-->
-    </a>
-</Card>
-
-
-
-<style>
-
-    /* Typography adjustments */
-    .blog-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
-
-    .blog-author {
-        font-size: 0.875rem;
-        color: #666;
-    }
-
-    .blog-description {
-        font-size: 1rem;
-        margin-top: 0.5rem;
-    }
-</style>
+<SummaryCard
+        title={post.data.title}
+        imgAlt={post.data.title}
+        imgSrc={post.data.imgUrl}
+        description={post.data.description}
+>
+    <div class='flex justify-end my-4'>
+        <Button href={`/posts/${post.id}/`}>Read post &rarr;</Button>
+    </div>
+    <div class='hidden sm:inline-block'>
+        <p class='poppins mt-2'>tags:</p>
+    </div>
+</SummaryCard>
