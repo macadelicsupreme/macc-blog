@@ -4,20 +4,20 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
-import carolinaImage from '../../public/assets/carolina-in-the-morning.jpg';
+
 ---
 
 <DefaultLayout
         title='Home'
-        pageTitle="Welcome to My Blog"
+        pageTitle="Home Page"
         description="Tracking my adventures in software engineering and more."
 >
-    <main class="mt-4 new-amsterdam-regular custom-lavender-texture-bg px-6">
+    <main class="p-6 new-amsterdam-regular bg-[#d3aef7eb] border-black">
         <!-- Hero Section -->
-        <section id='hero' class='border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-6 p-6 bg-white shadow-md rounded-lg'>
-            <div class='flex-1'>
-                <h1 class='text-4xl md:text-6xl outfit font-bold mb-4'>Welcome to My Blog</h1>
-                <p class='text-lg md:text-xl mb-6'>
+        <section id='hero' class='bg-[#ACDDE7] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-4 p-4  shadow-md rounded-lg'>
+            <div class='col-span-4'>
+                <h1 class='josefin-sans-variable text-4xl md:text-6xl outfit font-bold mt-4'>Welcome to Macc Blogs</h1>
+                <p class='text-lg md:text-xl mt-4 rubik-serif'>
                     Follow along as I share my experiences in software engineering and explore my hobbies. Dive into stories, lessons, and adventures!
                 </p>
                 <Button target={'_self'} href='/about/'>
@@ -29,17 +29,17 @@ import carolinaImage from '../../public/assets/carolina-in-the-morning.jpg';
         <!-- About Section -->
         <section id='about' class='grid md:grid-cols-8 gap-6 mt-12'>
             <div class='col-span-4'>
-                <Card>
-                    <h2 class='text-2xl md:text-4xl outfit font-bold mb-4'>About the Blog</h2>
-                    <p class='text-lg'>
+                <Card color="white">
+                    <h2 class='text-2xl md:text-4xl outfit font-bold mb-4 rubik-variable'>About the Blog</h2>
+                    <p class='text-lg rubik-serif'>
                         This blog is a space where I document my journey through software engineering and beyond. Whether it's new technologies, problem-solving adventures, or personal projects, you'll find it here.
                     </p>
                 </Card>
             </div>
             <div class='col-span-4'>
                 <Card>
-                    <h2 class='text-2xl md:text-4xl outfit font-bold mb-4'>Why Follow Along?</h2>
-                    <p class='text-lg'>
+                    <h2 class='text-2xl md:text-4xl outfit font-bold mb-4 rubik-variable'>Why Follow Along?</h2>
+                    <p class='text-lg rubik-serif'>
                         Join me in discovering how to navigate challenges, embrace learning opportunities, and celebrate small wins. Let’s grow and explore together.
                     </p>
                 </Card>
@@ -47,12 +47,11 @@ import carolinaImage from '../../public/assets/carolina-in-the-morning.jpg';
         </section>
 
         <!-- Recent Blog Posts Section -->
-        <div class="col-span-8 items-center">
-            <Card>
+        <section id="recent-blogs" class='bg-[#ACDDE7] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-8 mb-12 p-8  shadow-md rounded-lg' >
+            <div class="">
+                <h1 class="josefin-sans-variable">Check out some of my Recent Blogposts</h1>
                 <RecentBlogPosts/>
-            </Card>
-        </div>
-
-
+            </div>
+        </section>
     </main>
 </DefaultLayout>

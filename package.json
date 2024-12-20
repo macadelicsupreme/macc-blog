@@ -15,6 +15,7 @@
     "@astrojs/ts-plugin": "^1.10.4",
     "@fontsource-variable/noto-sans-jp": "^5.1.0",
     "@fontsource/new-amsterdam": "^5.1.0",
+    "@fontsource/rampart-one": "^5.1.0",
     "@unocss/astro": "^0.65.1",
     "@unocss/preset-icons": "^0.65.1",
     "@unocss/preset-typography": "^0.65.1",
