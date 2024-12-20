@@ -32,9 +32,16 @@ const { backToTop = false } = Astro.props;
     </button>
         )
     }
-<footer class='bg-black text-white p-6'>
-    <h2 class='hidden'>Footer</h2>
 
+<footer class='new-amsterdam-regular  bg-black text-white p-6'>
+    <h2 class='hidden'>Footer</h2>
+    <p class='outfit'>
+        Brutal theme for Astro - by <a
+            href=''
+            target='_blank'
+            class='text-blue'>macc blogs</a
+    >
+    </p>
 </footer>
 
 <style>
@@ -43,25 +50,25 @@ const { backToTop = false } = Astro.props;
     }
 </style>
 
-<script>
-    document.addEventListener('astro:page-load', () => {
-        const backToTop = document.querySelector('.backToTop');
+<!--<script>-->
+<!--    document.addEventListener('astro:page-load', () => {-->
+<!--        const backToTop = document.querySelector('.backToTop');-->
 
-        const toggleBackToTopButton = () => {
-            if (window.scrollY > 250) {
-                backToTop?.classList.add('active');
-            } else {
-                backToTop?.classList.remove('active');
-            }
-        };
+<!--        const toggleBackToTopButton = () => {-->
+<!--            if (window.scrollY > 250) {-->
+<!--                backToTop?.classList.add('active');-->
+<!--            } else {-->
+<!--                backToTop?.classList.remove('active');-->
+<!--            }-->
+<!--        };-->
 
-        backToTop?.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth',
-            });
-        });
+<!--        backToTop?.addEventListener('click', () => {-->
+<!--            window.scrollTo({-->
+<!--                top: 0,-->
+<!--                behavior: 'smooth',-->
+<!--            });-->
+<!--        });-->
 
-        window.addEventListener('scroll', toggleBackToTopButton);
-    });
-</script>
+<!--        window.addEventListener('scroll', toggleBackToTopButton);-->
+<!--    });-->
+<!--</script>-->

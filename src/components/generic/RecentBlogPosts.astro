@@ -1,33 +1,31 @@
 ---
 import { getCollection } from 'astro:content';
-
-import BlogSummaryCard from "../BlogSummaryCard.astro";
+import Button from "../Button.astro";
+import BlogList from "../BlogList.astro";
 import Card from "../Card.astro";
+import { Image } from "astro:assets";
 
 
 interface Props {
     count?: number;
 }
 const { count } = Astro.props;
-
 const posts = await getCollection('blog').then((posts) =>
     posts.reverse().slice(0, count ?? 3)
 );
 ---
 
-<section class="mt-8">
-    <Card>
-        <section class='mt-8'>
-            <div>
-                {posts.map(post => (
-                        <article>
-                            <h2>{post.data.title}</h2>
-                            <p>{post.data.description}</p>
-                        </article>
-                ))}
+<section class='mt-8 '>
+    <Card color="white">
+        <div class='flex justify-between items-start'>
+            <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+                Recent Blogposts
+            </h2>
+            <div class='hidden md:block'>
+                <Button href='/blog/'>Go to blog &rarr;</Button>
             </div>
-        </section>
+        </div>
+        <BlogList posts={posts} />
     </Card>
 </section>
-
-<!-- was running out of memory because the onst posts = await getCollection('blog') was recursing infinitely before i changed it-->
+<!-- was running out of memory because the const posts = await getCollection('blog') was recursing infinitely before i changed it-->

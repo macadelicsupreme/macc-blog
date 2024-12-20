@@ -3,10 +3,11 @@ title: 'My First Blog Post'
 pubDate: 2022-07-01
 description: 'This is the first post of my new Astro blog.'
 author: 'Astro Learner'
-image:
-    url: 'https://docs.astro.build/assets/rose.webp'
-    alt: 'The Astro logo on a dark background with a pink glow.'
+imgUrl: "/assets/carolina-in-the-morning.jpg"
 tags: ["astro", "blogging", "learning in public"]
+
+
+# (layout: "../../layouts/DefaultLayout.astro")
 ---
 # My First Blog Post
 
@@ -27,3 +28,10 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 
 
+
+
+## Deorum petiit ignis
+
+Lorem markdownum longo os thyrso telum, continet servat fetus nymphae, *vox
+nocte sedesque*, decimo. Omnia esse, quam sive; conplevit illis indestrictus
+admovit dedit sub quod protectus, impedit non.

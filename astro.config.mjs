@@ -1,11 +1,17 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import UnoCSS from 'unocss/vite';
 import sitemap from '@astrojs/sitemap';
 
 
-// https://astro.build/config
+
 export default defineConfig({
-  site: "https://example.com",
-  integrations: [tailwind(), sitemap()]
+    integrations: [sitemap()],
+    vite: {
+        plugins: [
+            UnoCSS({
+                inspector: true, // Enables the UnoCSS inspector
+            }),
+        ],
+    },
 });

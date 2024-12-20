@@ -1,29 +1,26 @@
 ---
-import NeuCard from "./NeuCard.astro";
-import Button from "./Button.astro";
-
 import type { CollectionEntry } from 'astro:content';
+
+import SummaryCard from "./generic/SummaryCard.astro";
+import Button from "./Button.astro";
 
 interface Props {
     post: CollectionEntry<'blog'>;
 }
 
-// Extract data from props
 const { post } = Astro.props;
-const { title, description, author, image, pubDate } = post.data;
-
 ---
 
-<NeuCard>
-    <div class="flex flex-col gap-4">
-        <img src={image.url} alt={image.alt} class="rounded-md w-full h-48 object-cover" />
-
-        <div class="flex flex-col">
-            <h2 class="text-2xl font-bold">{title}</h2>
-            <p class="text-gray-600 text-sm">By {author}}</p>
-            <p class="mt-2 text-gray-800">{description}</p>
-        </div>
-
-
+<SummaryCard
+        title={post.data.title}
+        imgAlt={post.data.title}
+        imgSrc={post.data.imgUrl}
+        description={post.data.description}
+>
+    <div class='flex justify-end my-4'>
+        <Button href={`/posts/${post.id}/`}>Read post &rarr;</Button>
     </div>
-</NeuCard>
+    <div class='hidden sm:inline-block'>
+        <p class='poppins mt-2'>tags:</p>
+    </div>
+</SummaryCard>
