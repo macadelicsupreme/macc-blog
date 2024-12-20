@@ -15,9 +15,9 @@ const navigationItems = [
 const { pageTitle } = Astro.props;
 ---
 
-<header class="border-b-2 border-black flex justify-center items-center px-4 py-6">
+<header class="custom-lavender-texture-bg py-6 rubik-variable">
     <nav class="nav-links">
-        <ul class="flex gap-8 text-lg font-medium new-amsterdam-regular">
+        <ul class="flex gap-10 text-xl font-large">
             <li>
                 <a
                         class="hover:text-green hover:underline transition-all duration-150 ease-in-out"
@@ -60,7 +60,7 @@ const { pageTitle } = Astro.props;
         padding: 0;
         margin: 0;
         display: flex;
-        gap: 2rem;
+        gap: 4rem;
     }
     li a {
         text-decoration: none;
@@ -68,6 +68,6 @@ const { pageTitle } = Astro.props;
         transition: color 0.3s ease-in-out;
     }
     li a:hover {
-        color: var(--hover-color, green);
+        color: #A379C9;
     }
 </style>
