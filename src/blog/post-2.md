@@ -3,7 +3,7 @@ title: My Second Blog Post
 author: Astro Learner
 description: "!"
 imgUrl: "/assets/carolina-in-the-morning.jpg" 
-pubDate: 2022-07-15
+pubDate: '2022-07-15'
 tags: ["astro", "learning in public", "setbacks", "community"]
 ---
 ## Deorum petiit ignis

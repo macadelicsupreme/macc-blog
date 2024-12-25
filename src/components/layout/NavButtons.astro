@@ -1,0 +1,35 @@
+---
+
+interface Props {
+    activeUrl: string;
+    isLoggedIn: boolean;
+}
+
+const { activeUrl, isLoggedIn } = Astro.props;
+
+const navigationItems = isLoggedIn
+    ? [
+        { name: 'Home', url: '/' },
+        { name: 'Blog', url: '/blogs/' },
+        { name: 'About', url: '/about/' },
+    ]
+    : [
+        // if you are not logged in
+        { name: 'Home', url: '/' },
+        { name: 'Sign-in', url: 'api/signin/' },
+        { name: 'Register', url: 'api/register'}
+    ];
+---
+
+<nav>
+    <ul>
+        {navigationItems.map((item) => (
+                <li>
+                    <a href={item.url} class:list={{ 'active': activeUrl === item.url }}>
+                        {item.name}
+                    </a>
+                </li>
+        ))}
+    </ul>
+
+</nav>

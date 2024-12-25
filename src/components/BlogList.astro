@@ -5,22 +5,23 @@ import BlogSummaryCard from './BlogSummaryCard.astro';
 
 interface Props {
     posts: CollectionEntry<'blog'>[];
-    color?: string;
+
 }
 
-const { posts,  color} = Astro.props;
+const { posts } = Astro.props;
 ---
 
-<div class="">
+
+
+
     <ul class='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
         {
             posts.map((post) => {
                 return (
-                        <ul class=" shadow-black p-6">
+                        <li>
                             <BlogSummaryCard post={post} />
-                        </ul>
+                        </li>
                 );
             })
         }
     </ul>
-</div>

@@ -6,13 +6,11 @@ import Button from "./Button.astro";
 
 interface Props {
     post: CollectionEntry<'blog'>;
-    color?: string;
 }
 
 const { post } = Astro.props;
 ---
 
-<div class="p-4 bg-[#cfe8ef] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-2 hover:shadow-md border-solid border-[#85c7de] transition-shadow">
     <SummaryCard
             title={post.data.title}
             imgAlt={post.data.title}
@@ -21,12 +19,15 @@ const { post } = Astro.props;
 
     >
         <div class='flex justify-end my-4'>
-            <Button href={`/posts/${post.id}/`} class="bg-white text-black px-4 py-2 border border-black hover:bg-gray-200">
-                Read post &rarr;
-            </Button>
+                <Button href={`/post/${post.id}/`} class="bg-white text-black px-4 py-2 border-solid border-black hover:bg-gray-200">
+                Read Post
+                </Button>
         </div>
+
         <div class='hidden sm:inline-block'>
-            <p class='text-sm text-gray-600'>Tags:</p>
+            <p class='poppins mt-2'>tags:</p>
+            <div class='flex justify-between items-center'>
+
+            </div>
         </div>
     </SummaryCard>
-</div>

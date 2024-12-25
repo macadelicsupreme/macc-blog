@@ -4,22 +4,31 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
+import { supabaseClient } from "../utils/supabase";
 
+
+const {data, error } = await supabaseClient.from("Users").select('*');
+const { activeUrl, isLoggedIn} = Astro.props
+console.log("users")
 ---
+
 
 <DefaultLayout
         title='Home'
         pageTitle="Home Page"
-        description="Tracking my adventures in software engineering and more."
+        activeUrl={activeUrl}
+        isLoggedIn={isLoggedIn}
 >
-    <main class="p-6 new-amsterdam-regular bg-[#d3aef7eb] border-black">
+    <main class="p-6 new-amsterdam-regular bg-[#D9CAB3] border-solid border-black">
+
         <!-- Hero Section -->
-        <section id='hero' class='bg-[#ACDDE7] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-4 p-4  shadow-md rounded-lg'>
+        <section id='hero' class='whitish-looking-bg drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-4 p-4  shadow-md rounded-lg'>
             <div class='col-span-4'>
                 <h1 class='josefin-sans-variable text-4xl md:text-6xl outfit font-bold mt-4'>Welcome to Macc Blogs</h1>
                 <p class='text-lg md:text-xl mt-4 rubik-serif'>
                     Follow along as I share my experiences in software engineering and explore my hobbies. Dive into stories, lessons, and adventures!
                 </p>
+                <p>Colors inspired by my wifey.</p>
                 <Button target={'_self'} href='/about/'>
                     Learn More About Me &rarr;
                 </Button>
@@ -28,7 +37,7 @@ import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
 
         <!-- About Section -->
         <section id='about' class='grid md:grid-cols-8 gap-6 mt-12'>
-            <div class='col-span-4'>
+            <div class='col-span-4 p-4 m-4 custom-lavender-texture-bg border-dashed border-b-dark drop-shadow-[5px_5px_0_rgb(0_0_0/_1)]'>
                 <Card color="white">
                     <h2 class='text-2xl md:text-4xl outfit font-bold mb-4 rubik-variable'>About the Blog</h2>
                     <p class='text-lg rubik-serif'>
@@ -36,7 +45,8 @@ import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
                     </p>
                 </Card>
             </div>
-            <div class='col-span-4'>
+
+            <div class='col-span-4 p-4 m-4 custom-lavender-texture-bg border-dashed border-b-dark drop-shadow-[5px_5px_0_rgb(0_0_0/_1)]'>
                 <Card>
                     <h2 class='text-2xl md:text-4xl outfit font-bold mb-4 rubik-variable'>Why Follow Along?</h2>
                     <p class='text-lg rubik-serif'>
@@ -47,7 +57,7 @@ import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
         </section>
 
         <!-- Recent Blog Posts Section -->
-        <section id="recent-blogs" class='bg-[#ACDDE7] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-8 mb-12 p-8  shadow-md rounded-lg' >
+        <section id="recent-blogs" class='bg-[#BC8034] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-8 mb-12 p-8  shadow-md rounded-lg' >
             <div class="">
                 <h1 class="josefin-sans-variable">Check out some of my Recent Blogposts</h1>
                 <RecentBlogPosts/>

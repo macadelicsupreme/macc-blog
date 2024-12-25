@@ -17,19 +17,19 @@ const posts = await getCollection('blog').then((posts) =>
 
 <section class='mt-8'>
     <Card color="white">
-        <div class='hidden md:block flex justify-between items-center p-4'>
-            <!--<h2 class="text-3xl font-bold mb-4">-->
-            <!--    Explore My Blog-->
-            <!--</h2>-->
+        <div class='flex justify-between items-start'>
+            <div class='hidden md:block'>
+                <Button href='/blogs/'>Go to blog &rarr;</Button>
+            </div>
             <!--<p class="text-lg text-gray-700 mb-6">-->
             <!--    Dive into my adventures in software engineering, problem-solving, and personal projects. Join the journey and gain insights from my experiences!-->
             <!--</p>-->
-            <Button href="/blog/">
-                Recent Blogposts
-            </Button>
+            <!--<Button href="/blog/">-->
+            <!--    Recent Blogposts-->
+            <!--</Button>-->
         </div>
+        <BlogList posts={posts} />
     </Card>
-    <slot/>
 
 </section>
 

@@ -1,9 +1,5 @@
+
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
 const { title, url } = Astro.props
 ---
-
-    <main class='p-2 lg:grid lg:grid-cols-3 flex justify-center'>
-        <slot />
-    </main>
-
+<li><a href={url}>{title}</a></li>
