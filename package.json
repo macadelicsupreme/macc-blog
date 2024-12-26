@@ -21,11 +21,11 @@
     "@fontsource/new-amsterdam": "^5.1.0",
     "@fontsource/rampart-one": "^5.1.0",
     "@supabase/supabase-js": "^2.47.10",
-    "@unocss/astro": "^0.65.1",
-    "@unocss/preset-icons": "^0.65.1",
-    "@unocss/preset-typography": "^0.65.1",
-    "@unocss/preset-wind": "^0.65.1",
-    "@unocss/reset": "^0.65.1",
+    "@unocss/astro": "^0.65.3",
+    "@unocss/preset-icons": "^0.65.3",
+    "@unocss/preset-typography": "^0.65.3",
+    "@unocss/preset-wind": "^0.65.3",
+    "@unocss/reset": "^0.65.3",
     "astro": "^5.1.1",
     "astro-font": "^0.1.81",
     "astro-icon": "^1.1.4",
@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "@julr/unocss-preset-heropatterns": "^1.0.2",
-    "@unocss/preset-web-fonts": "^0.65.1",
+    "@unocss/preset-web-fonts": "^0.65.3",
     "supabase": "^2.1.1",
-    "unocss": "^0.65.1"
+    "unocss": "^0.65.3"
   }
 }
