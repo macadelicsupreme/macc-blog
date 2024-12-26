@@ -1,34 +1,44 @@
 ---
-import DefaultLayout from "./DefaultLayout.astro";
-
-const { frontmatter } = Astro.props;
-const { description, title, pubDate, author, image } = Astro.props;
-
+const { title, themeColor, pubDate, author, description, imgUrl } = Astro.props;
 ---
 
-<DefaultLayout description={frontmatter.description} title={frontmatter.title}>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-    <slot />
-</DefaultLayout>
+<article
+        style={`--theme-color: ${themeColor || '#ffffff'};`}
+        class="bg-white text-black rounded-lg shadow-lg p-8 border border-black"
+>
+    <header class="mb-6">
+        <h1
+                class="text-3xl font-bold border-b-2 pb-2"
+        >
+            {title}
+        </h1>
+
+    </header>
+    <img src={imgUrl} alt={description} class="mb-6 w-full rounded" />
+    <div class="prose">
+        <slot />
+    </div>
+</article>
 
 <style>
-    a {
-        color: #00539F;
+    article {
+        background-color: #ffffff;
     }
 
-    .tags {
-        display: flex;
-        flex-wrap: wrap;
+    article h1 {
     }
 
-    .tag {
-        margin: 0.25em;
-        border: dotted 1px #a1a1a1;
-        border-radius: .5em;
-        padding: .5em 1em;
-        font-size: 1.15em;
-        background-color: #F8FCFD;
+    article a {
+        text-decoration: underline;
+    }
+
+    article a:hover {
+        /* Fallback to a lighter shade using opacity */
+        color: rgba(var(--theme-color-rgb), 0.8);
+    }
+
+    /* Convert hex to RGB for `--theme-color` dynamically using JavaScript */
+    :root {
+        --theme-color-rgb: 144, 50, 61; /* Example fallback */
     }
 </style>

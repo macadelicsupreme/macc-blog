@@ -3,25 +3,24 @@ import '../styles/global.css';
 import 'virtual:uno.css';
 import BaseHead from "../components/layout/BaseHead.astro";
 import BaseFooter from "../components/layout/BaseFooter.astro";
-import BaseNavigation from "../components/layout/BaseNavigation.astro";
 import '@fontsource/new-amsterdam';
+import BaseHeader from "../components/layout/BaseHeader.astro";
 
 interface Props {
     title: string;
-    description: string;
-    classList?: string;
     pageTitle?: string;
-    ogImage?: URL
+    isLoggedIn: boolean;
+    activeUrl: string;
 }
 
-const { title, description, classList, pageTitle, ogImage } = Astro.props;
+const { title, isLoggedIn , pageTitle , activeUrl} = Astro.props;
 ---
 
-<html lang='en' class='h-full'>
-<BaseHead ogImage={ogImage} title={title} description={description} />
-<body class:list={[classList]}>
-<BaseNavigation />
-<slot />
-<BaseFooter />
+<html lang='en' class='h-full w-full'>
+<BaseHead title={title} />
+<BaseHeader pageTitle={pageTitle} isLoggedIn={isLoggedIn} activeUrl={activeUrl} />
+<body class="flex flex-col h-full w-full dark:bg-zinc-900 bg-zinc-50 dark:text-zinc-100">
+    <slot />
 </body>
+<BaseFooter />
 </html>
