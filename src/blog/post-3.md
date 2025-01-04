@@ -1,8 +1,8 @@
 ---
-title: My Third Blog Post
-author: Astro Learner
+title: 'My Third Blog Post'
+author: macc
 description: "After learning some Astro, I couldn't stop!"
 pubDate: '2022-07-08'
 tags: ["astro", "blogging", "learning in public", "successes"]
-imgUrl: "/assets/carolina-in-the-morning.jpg" 
+imgUrl: "../../carolina-in-the-morning.jpg" 
 ---

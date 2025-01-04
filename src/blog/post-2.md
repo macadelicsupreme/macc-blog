@@ -1,8 +1,8 @@
 ---
-title: My Second Blog Post
-author: Astro Learner
+title: 'My Second Blog Post'
+author: macc
 description: "!"
-imgUrl: "/assets/carolina-in-the-morning.jpg" 
+imgUrl: "../../carolina-in-the-morning.jpg"
 pubDate: '2022-07-15'
 tags: ["astro", "learning in public", "setbacks", "community"]
 ---

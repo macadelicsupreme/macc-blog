@@ -2,23 +2,18 @@
 title: 'My First Blog Post'
 pubDate: '2022-07-01'
 description: 'This is the first post of my new Astro blog.'
-author: 'Astro Learner'
-imgUrl: "/assets/carolina-in-the-morning.jpg"
+author: macc
+imgUrl: "../../carolina-in-the-morning.jpg"
 tags: 
   - astro
   - blogging
 
 
 
-themeColor: "#90323D" # Add a theme color
+themeColor: "#90323D" # Add a theme color)
 ---
-# My First Blog Post
 
-Published on: 2022-07-01
-
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
-
-# What Is accomplished
+## What Is accomplished
 
 1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
 
