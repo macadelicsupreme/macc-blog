@@ -4,7 +4,7 @@ import { supabaseClient } from './supabase';
 export const authProvider = supabaseAuthProvider(supabaseClient, {
     getIdentity: async (user) => {
         const { data, error } = await supabaseClient
-            .from('users')
+            .from('Users')
             .select('id, user_id, name')
             .match({ email: user.email })
             .single();

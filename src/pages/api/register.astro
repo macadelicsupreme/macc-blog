@@ -4,10 +4,10 @@ import DefaultLayout from "../../layouts/DefaultLayout.astro";
 import {supabase} from "../../utils/supabase";
 export const prerender = false
 const { activeUrl, isLoggedIn } = Astro.props;
-const { data, error } = await supabase.auth.signUp({
-    email: 'example@email.com',
-    password: 'example-password',
-})
+// const { data, error } = await supabase.auth.signUp({
+//     email: 'example@email.com',
+//     password: 'example-password',
+// })
 
 ---
 

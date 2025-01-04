@@ -1,10 +1,10 @@
 ---
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
-import {supabaseClient} from "../../utils/supabase";
+import {supabase} from "../../utils/supabase";
 const title = "Sign in";
 const {pageTitle, activeUrl, isLoggedIn} = Astro.props
-const { data, error } = await supabaseClient
-    .from('countries')
+const { data, error } = await supabase
+    .from('Users')
     .select()
 ---
 
