@@ -15,9 +15,7 @@ const { activeUrl, isLoggedIn} = Astro.props
 
 <DefaultLayout
         title='Home'
-        pageTitle="Home Page"
-        activeUrl={activeUrl}
-        isLoggedIn={isLoggedIn}
+
 >
     <main class="p-6 new-amsterdam-regular bg-[#D9CAB3] border-solid border-black">
 
@@ -57,11 +55,12 @@ const { activeUrl, isLoggedIn} = Astro.props
         </section>
 
         <!-- Recent Blog Posts Section -->
-        <section id="recent-blogs" class='bg-[#BC8034] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-8 mb-12 p-8  shadow-md rounded-lg' >
-            <div class="">
-                <h1 class="josefin-sans-variable">Check out some of my Recent Blogposts</h1>
-                <RecentBlogPosts/>
-            </div>
-        </section>
+        <!--<section id="recent-blogs" class='bg-[#BC8034] drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-8 mb-12 p-8  shadow-md rounded-lg' >-->
+        <!--    <div class="">-->
+        <!--        <h1 class="josefin-sans-variable">Check out some of my Recent Blogposts</h1>-->
+        <!--        <RecentBlogPosts/>-->
+        <!--    </div>-->
+        <!--</section>-->
+        <RecentBlogPosts/>
     </main>
 </DefaultLayout>

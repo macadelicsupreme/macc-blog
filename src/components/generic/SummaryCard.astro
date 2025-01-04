@@ -10,12 +10,13 @@ interface Props {
     description: string;
 }
 
-const { title, imgAlt, imgSrc, description } = Astro.props;
+
+const { title, imgSrc, imgAlt, description } = Astro.props;
 ---
 
 <Card color='white'>
     <h3 class='ptext-lg md:text-xl'>{title}</h3>
-    <div class=''>
+    <div class='rounded-lg border-3 border-black my-4 h-56'>
         <Image
                 src={imgSrc}
                 alt={imgAlt}

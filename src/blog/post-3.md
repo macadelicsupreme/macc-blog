@@ -4,5 +4,5 @@ author: macc
 description: "After learning some Astro, I couldn't stop!"
 pubDate: '2022-07-08'
 tags: ["astro", "blogging", "learning in public", "successes"]
-imgUrl: "../../carolina-in-the-morning.jpg" 
+imgUrl: "../assets/carolina-in-the-morning.jpg" 
 ---

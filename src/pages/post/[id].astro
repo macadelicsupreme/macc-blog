@@ -1,30 +1,36 @@
 ---
-import { getCollection, render } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
-import { getEntry } from 'astro:content';
+import {CollectionEntry, getCollection, render} from 'astro:content';
+
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 // 1. Get the slug from the incoming server request
 const { id } = Astro.params;
 if (id === undefined) {
     return Astro.redirect("/404");
 }
-// 2. Query for the entry directly using the request slug
-const post = await getEntry("blog", id);
-// 3. Redirect if the entry does not exist
-if (post === undefined) {
-    return Astro.redirect("/404");
-}
-// 4. Render the entry to HTML in the template
-const { Content } = await render(post);
+
 export const prerender = true;
 export async function getStaticPaths() {
     const posts = await getCollection('blog');
-    return posts.map(post => ({
+    return posts.map((post) => ({
         params: { id: post.id },
         props: { post },
     }));
 }
 
+interface Props {
+    post: CollectionEntry<'blog'>;
+}
+
+const { post,imgSrc, imgAlt} = Astro.props;
+const { Content } = await render(post);
+
 ---
-<MarkdownPostLayout frontmatter={post.data}>
+<MarkdownPostLayout
+    title={post.data.title}
+    pubDate={post.data.pubDate}
+    author={post.data.author}
+    headings={post.rendered?.metadata?.headings}
+     imgSrc={post.data.imgSrc} imgAlt={post.data.ImgAlt}>
+
     <Content />
 </MarkdownPostLayout>

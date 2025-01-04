@@ -8,17 +8,14 @@ import BaseHeader from "../components/layout/BaseHeader.astro";
 
 interface Props {
     title: string;
-    pageTitle?: string;
-    isLoggedIn: boolean;
-    activeUrl: string;
 }
 
-const { title, isLoggedIn , pageTitle , activeUrl} = Astro.props;
+const { title} = Astro.props;
 ---
 
 <html lang='en' class='h-full w-full'>
 <BaseHead title={title} />
-<BaseHeader pageTitle={pageTitle} isLoggedIn={isLoggedIn} activeUrl={activeUrl} />
+<BaseHeader  />
 <body class="flex flex-col h-full w-full dark:bg-zinc-900 bg-zinc-50 dark:text-zinc-100">
     <slot />
 </body>

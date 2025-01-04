@@ -2,7 +2,7 @@
 title: 'My Second Blog Post'
 author: macc
 description: "!"
-imgUrl: "../../carolina-in-the-morning.jpg"
+imgUrl: "../assets/carolina-in-the-morning.jpg"
 pubDate: '2022-07-15'
 tags: ["astro", "learning in public", "setbacks", "community"]
 ---

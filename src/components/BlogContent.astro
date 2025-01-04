@@ -1,18 +1,25 @@
 ---
 interface Props {
     author: string;
-    pubDate: Date
+    pubDate: Date;
+    title: string;
+    imgSrc: string;
+    imgAlt: string;
 }
 
-const { pubDate, author } = Astro.props;
+const { pubDate, author, title , imgAlt, imgSrc} = Astro.props;
 ---
 
 <article class='prose-slate w-sm md:w-prose md:prose poppins'>
-    <a href='/src/blog/' title='Back to blog'>&larr; Back to blog</a>
+    <a href='/pages/post/' title='Back to blog'>&larr; Back to blog</a>
+    <h1 class='text-2xl font-bold'>{title}</h1>
+    <div class="my-4">
+        <img src={imgSrc} alt={imgAlt} class="rounded shadow-md max-w-full" />
+    </div>
     <p class='text-slate text-sm md:text-base'>
-        Published on {pubDate} by {author}
+        Published on {pubDate.toDateString()} by {author}
     </p>
     <slot />
     <p class='text-slate'>Written by {author}</p>
-    <a href='/src/blog/' title='Back to blog'>&larr; Back to blog</a>
+    <a href='/pages/post/' title='Back to blog'>&larr; Back to blog</a>
 </article>

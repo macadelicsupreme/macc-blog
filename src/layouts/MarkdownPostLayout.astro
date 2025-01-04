@@ -1,44 +1,21 @@
 ---
-const { title, themeColor, pubDate, author, description, imgUrl } = Astro.props;
+import DefaultLayout from "./DefaultLayout.astro";
+import BlogContent from "../components/BlogContent.astro";
+interface Props {
+    author: string;
+    pubDate: Date;
+    headings: unknown;
+    title: string;
+    imgSrc: string;
+    imgAlt: string;
+}
+const { title, pubDate, author, imgSrc, imgAlt } = Astro.props;
 ---
 
-<article
-        style={`--theme-color: ${themeColor || '#ffffff'};`}
-        class="bg-white text-black rounded-lg shadow-lg p-8 border border-black"
->
-    <header class="mb-6">
-        <h1
-                class="text-3xl font-bold border-b-2 pb-2"
-        >
-            {title}
-        </h1>
-
-    </header>
-    <img src={imgUrl} alt={description} class="mb-6 w-full rounded" />
-    <div class="prose">
-        <slot />
-    </div>
-</article>
-
-<style>
-    article {
-        background-color: #ffffff;
-    }
-
-    article h1 {
-    }
-
-    article a {
-        text-decoration: underline;
-    }
-
-    article a:hover {
-        /* Fallback to a lighter shade using opacity */
-        color: rgba(var(--theme-color-rgb), 0.8);
-    }
-
-    /* Convert hex to RGB for `--theme-color` dynamically using JavaScript */
-    :root {
-        --theme-color-rgb: 144, 50, 61; /* Example fallback */
-    }
-</style>
+<DefaultLayout title={title} >
+    <main class='p-6 lg:grid lg:grid-cols-3 flex justify-center'>
+        <BlogContent title={title} pubDate={pubDate} author={author} imgSrc={imgSrc} imgAlt={imgAlt}>
+            <slot />
+        </BlogContent>
+    </main>
+</DefaultLayout>

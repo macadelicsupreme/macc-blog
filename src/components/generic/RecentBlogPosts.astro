@@ -21,12 +21,6 @@ const posts = await getCollection('blog').then((posts) =>
             <div class='hidden md:block'>
                 <Button href='/blogs/'>Go to blog &rarr;</Button>
             </div>
-            <!--<p class="text-lg text-gray-700 mb-6">-->
-            <!--    Dive into my adventures in software engineering, problem-solving, and personal projects. Join the journey and gain insights from my experiences!-->
-            <!--</p>-->
-            <!--<Button href="/blog/">-->
-            <!--    Recent Blogposts-->
-            <!--</Button>-->
         </div>
         <BlogList posts={posts} />
     </Card>

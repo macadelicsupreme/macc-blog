@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import {supabaseClient} from "../../../utils/supabase.ts";
+import {supabase} from "../../../utils/supabase.ts";
 
 export const GET: APIRoute = async ({ url, cookies, redirect }) => {
     const authCode = url.searchParams.get("code");
@@ -8,7 +8,7 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
         return new Response("No code provided", { status: 400 });
     }
 
-    const { data, error } = await supabaseClient.auth.exchangeCodeForSession(authCode);
+    const { data, error } = await supabase.auth.exchangeCodeForSession(authCode);
 
     if (error) {
         return new Response(error.message, { status: 500 });
