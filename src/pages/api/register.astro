@@ -37,6 +37,32 @@ const { activeUrl, isLoggedIn } = Astro.props;
             >
                 <div class="grid grid-cols-1 gap-2">
                     <label
+                            for="first_name"
+                            class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
+                    >first name</label
+                    >
+                    <input
+                            id="first_name"
+                            type="text"
+                            name="first_name"
+                            class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"
+                    />
+                </div>
+                <div class="grid grid-cols-1 gap-2">
+                    <label
+                            for="last_name"
+                            class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
+                    >last name</label
+                    >
+                    <input
+                            id="last_name"
+                            type="text"
+                            name="last_name"
+                            class="rounded-md py-1 px-3 dark:bg-zinc-800 dark:text-zinc-300 border bg-zinc-50 border-zinc-300 dark:border-zinc-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:bg-zinc-900 focus:bg-white focus:ring-opacity-60"
+                    />
+                </div>
+                <div class="grid grid-cols-1 gap-2">
+                    <label
                             for="email"
                             class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
                     >Email</label

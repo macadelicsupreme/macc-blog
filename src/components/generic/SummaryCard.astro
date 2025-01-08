@@ -15,14 +15,15 @@ const { title, imgSrc, imgAlt, description } = Astro.props;
 ---
 
 <Card color='white'>
-    <h3 class='ptext-lg md:text-xl'>{title}</h3>
-    <div class='rounded-lg border-3 border-black my-4 h-56'>
+    <h3 class='rubik-serif ptext-lg md:text-xl'>{title}</h3>
+    <div class='relative bg-white'>
         <Image
                 src={imgSrc}
                 alt={imgAlt}
-                width={800}
-                height={400}
-                class='rounded h-full w-full object-cover'
+                width={700}
+                height={700}
+                class='h-full w-full object-fill border-solid border-2 p-2 border-b-bluegray border-r-bluegray shadow-[5px_5px_0_rgb(0_0_0/1)]'
+
         />
     </div>
     <p>{description}</p>

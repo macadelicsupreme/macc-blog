@@ -11,8 +11,8 @@ interface Props {
 const { activeUrl, isLoggedIn, pageTitle } = Astro.props;
 ---
 
-<header class="bg-[#90323D] rubik-variable border-dashed border-b-2 font-bold border-black flex justify-between items-center px-6 py-4">
-    <h1 class="text-white text-2xl">{pageTitle || "My Website"}</h1>
+<header class="bg-[#0077b6] rubik-variable border-dashed border-b-2 font-bold border-black flex justify-between items-center px-6 py-4">
+    <h1 class="text-white text-2xl">{pageTitle}</h1>
     <NavButtons activeUrl={activeUrl} isLoggedIn={isLoggedIn} />
 </header>
 

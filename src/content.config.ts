@@ -11,8 +11,7 @@ const blog = defineCollection({
         description: z.string(),
         author: z.string().default('macc'),
         imgUrl: image(),
-
-            tags: z.array(z.string()).optional(),
+        tags: z.array(z.string()).optional(),
         relatedPosts: z.array(z.string()).optional(),
 
     })

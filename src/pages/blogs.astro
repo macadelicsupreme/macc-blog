@@ -9,7 +9,7 @@ import { Image } from "astro:assets";
 
 import { getEntry, render } from 'astro:content';
 
-const { activeUrl , isLoggedIn } = Astro.props;
+const { activeUrl , isLoggedIn, pageTitle } = Astro.props;
 const posts = await getCollection('blog').then((collection) =>
     collection.reverse()
 );
@@ -17,8 +17,9 @@ const posts = await getCollection('blog').then((collection) =>
 
 
 <DefaultLayout
-        title='Blog'
->
+        title='Blogs Page'
+        pageTitle="Blogs"
+ activeUrl="" isLoggedIn>
     <main class='bg-green p-6'>
         <p>This is where I will post about my journey learning Astro.</p>
         <BlogList posts={posts} />

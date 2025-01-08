@@ -26,14 +26,16 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     }
 
     // Attempt sign-up with Supabase AUTH
-        const { data: authData, error: authError } = await supabase.auth.signUp({
+        const { data: authData , error: authError  } = await supabase.auth.signUp({
+
             email,
             password,
         });
 
+
         if (authError) {
             console.error("Auth sign-up error:", authError);
-            return new Response(authError.message, { status: 500 });
+            return new Response(authError.message, { status: 400 });
         }
         // Ensure user data exists in response
         if (!authData || !authData.user) {
@@ -41,45 +43,39 @@ export const POST: APIRoute = async ({ request, redirect }) => {
         }
 
         const userId = authData.user.id; // Supabase user ID
+        const username = authData.user.email;
+        const role = authData.user.user_metadata;
+
 
         // Insert user details into the custom 'users' table
-        const { error: userError } = await supabase
+        const { data: userData, error: userError } = await supabase
             .from("users") // Replace with your table name
             .insert([
                 {
                     id: userId, // Use the user ID from Supabase Auth
-                    role: "placeholder",
+                    role: role,
                     email,           // Email from form data
                     password, // TODO: Encrypt passwords
                     created_at: new Date().toISOString(),
                     created_by: email,
-                    username: "placeholder"
-                },
-            ]);
-
-
-        if (userError) {
-            console.error("Database insert error:", userError);
-            return new Response("Failed to save user in the database", { status: 500 });
-        }
+                    username: username
+                }
+            ])
+            .select()
 
         // Insert profile details into the profiles table
-        const { error: profileError } = await supabase
+        const { data: profileData , error: profileError } = await supabase
             .from("profiles") // Replace with your profiles table name
             .insert([
                 {
                     id: userId,    // Use the user ID from Supabase Auth
-                    first_name,    // First name
-                    last_name,     // Last name
+                    first_name: first_name,    // First name
+                    last_name: last_name,     // Last name
                     created_at: new Date().toISOString(),
                 },
-            ]);
-
-        if (profileError) {
-            console.error("Profile details insert error:", profileError);
-            return new Response("Failed to save profile details in the database", { status: 500 });
-        }
-
+            ])
+            .select()
+7
         // Redirect after successful user creation
         return redirect("/api/signin");
 

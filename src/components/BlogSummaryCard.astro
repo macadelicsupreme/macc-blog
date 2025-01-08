@@ -3,12 +3,14 @@ import type { CollectionEntry } from 'astro:content';
 
 import SummaryCard from "./generic/SummaryCard.astro";
 import Button from "./Button.astro";
+import Pill from "./Pill.astro";
 
 interface Props {
     post: CollectionEntry<'blog'>;
+
 }
 
-const { post } = Astro.props;
+const { post  } = Astro.props;
 ---
 
     <SummaryCard
@@ -18,16 +20,15 @@ const { post } = Astro.props;
             description={post.data.description}
 
     >
-        <div class='flex justify-end my-4'>
-                <Button href={`/post/${post.id}/`} class="bg-white text-black px-4 py-2 border-solid border-black hover:bg-gray-200">
+        <div class='flex justify-end mt-4 mb-4 items-center'>
+
+                <Button href={`/post/${post.id}/`}>
                 Read Post
                 </Button>
         </div>
 
         <div class='hidden sm:inline-block'>
-            <p class='poppins mt-2'>tags:</p>
-            <div class='flex justify-between items-center'>
+            <p class='rubik serif mt-2'>tags:</p>
 
-            </div>
         </div>
     </SummaryCard>
