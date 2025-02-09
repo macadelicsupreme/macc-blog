@@ -14,18 +14,17 @@ interface Props {
 const { title, imgSrc, imgAlt, description } = Astro.props;
 ---
 
-<Card color='white'>
-    <h3 class='rubik-serif ptext-lg md:text-xl'>{title}</h3>
-    <div class='relative bg-white'>
+    <!--<h3 class='rubik-serif ptext-lg md:text-xl'>{title}</h3>-->
+    <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
         <Image
                 src={imgSrc}
                 alt={imgAlt}
-                width={700}
-                height={700}
-                class='h-full w-full object-fill border-solid border-2 p-2 border-b-bluegray border-r-bluegray shadow-[5px_5px_0_rgb(0_0_0/1)]'
+                class='h-48 w-full object-cover border-solid shadow-[5px_5px_0_rgb(0_0_0/1)]' />
 
-        />
     </div>
-    <p>{description}</p>
+    <div class="p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">{title}</h2>
+        <p class="text-gray-600 mb-4">{description}</p>
+    </div>
+
     <slot />
-</Card>

@@ -4,13 +4,21 @@ import type { APIRoute } from "astro";
 import {supabase} from "../../../utils/supabase.ts";
 import { createClient } from '@supabase/supabase-js';
 
-export const POST: APIRoute = async ({ request, redirect }) => {
+export const POST: APIRoute = async ({ cookies ,request, redirect }) => {
     try {
         const formData = await request.formData();
         const first_name = formData.get("first_name")?.toString().trim();
         const last_name = formData.get("last_name")?.toString().trim();
         const email = formData.get("email")?.toString().trim();
         const password = formData.get("password")?.toString().trim();
+
+
+        const accessToken = cookies.get("sb-access-token");
+        const refreshToken = cookies.get("sb-refresh-token");
+
+        if (accessToken && refreshToken) {
+            return redirect("/dashboard");
+        }
 
         // Validate input
     if (!email || !password) {
@@ -75,7 +83,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
                 },
             ])
             .select()
-7
+
         // Redirect after successful user creation
         return redirect("/api/signin");
 

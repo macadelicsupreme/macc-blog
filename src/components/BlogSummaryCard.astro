@@ -20,15 +20,12 @@ const { post  } = Astro.props;
             description={post.data.description}
 
     >
-        <div class='flex justify-end mt-4 mb-4 items-center'>
+        <!--<div class='flex justify-end mt-4 mb-4 items-center'>-->
 
-                <Button href={`/post/${post.id}/`}>
-                Read Post
-                </Button>
-        </div>
+        <!--      -->
+        <!--</div>-->
 
-        <div class='hidden sm:inline-block'>
-            <p class='rubik serif mt-2'>tags:</p>
-
-        </div>
+        <Button href={`/post/${post.id}/`}>
+            Read Post
+        </Button>
     </SummaryCard>

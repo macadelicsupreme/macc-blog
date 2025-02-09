@@ -18,9 +18,16 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
 
     cookies.set("sb-access-token", access_token, {
         path: "/",
+        httpOnly: true,  // Prevents access from JavaScript
+        secure: true, // Ensures cookies are sent over HTTPS
+        sameSite: 'strict'
+
     });
     cookies.set("sb-refresh-token", refresh_token, {
         path: "/",
+        httpOnly: true,  // Prevents access from JavaScript
+        secure: true,
+        sameSite: 'strict'
     });
 
     console.log("cookies set")

@@ -5,26 +5,31 @@ import Button from "../components/Button.astro";
 import Card from "../components/Card.astro";
 import RecentBlogPosts from "../components/generic/RecentBlogPosts.astro";
 import { supabase } from "../utils/supabase";
+ export const prerender = false;
 
 
-const {data, error } = await supabase.from("Users").select('*');
-const { activeUrl, isLoggedIn, pageTitle} = Astro.props
+
+
+const {data } = await supabase.from("Users").select('*');
+const { error:signOutError } = await supabase.auth.signOut()
+const { title, pageTitle, activeUrl, isLoggedIn } = Astro.props;
 
 ---
 
 
 <DefaultLayout
         title='Home'
-        pageTitle={pageTitle}
-        activeUrl="">
+        pageTitle="Home"
+        activeUrl=""
+        isLoggedIn={isLoggedIn}>
     <main class="p-6 new-amsterdam-regular bg-[#caf0f8] border-solid border-black">
 
         <!-- Hero Section -->
         <section id='hero' class=' whitish-looking-bg drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex flex-col md:flex-row items-center justify-between gap-6 mt-4 p-4  shadow-md rounded-lg'>
             <div class='col-span-4'>
-                <h1 class='josefin-sans-variable text-4xl md:text-6xl outfit font-bold mt-4'>Welcome to Macc Blogs</h1>
+                <h1 class='bungee-shade text-4xl md:text-6xl outfit font-bold mt-4'>Gumbo</h1>
                 <p class='text-lg md:text-xl mt-4 font-bold rubik-serif'>
-                    Follow along as I share my experiences in software engineering and explore my hobbies. Dive into stories, lessons, and adventures!
+                    An eclectic mix of my different interest. Dive in...let's explore.
                 </p>
                 <p>Colors inspired by my wifey.</p>
                 <Button target={'_self'} href='/about/'>
@@ -57,9 +62,7 @@ const { activeUrl, isLoggedIn, pageTitle} = Astro.props
 
         <section id='recent' class='whitish-looking-bg drop-shadow-[5px_5px_0_rgb(0_0_0/_1)] border-solid border-2 flex-col md:flex-row  gap-6 mt-4 p-4  shadow-md rounded-lg'>
             <div class='col-span-4 m-4'>
-                <Card>
                     <RecentBlogPosts/>
-                </Card>
             </div>
         </section>
 

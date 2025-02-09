@@ -1,4 +1,6 @@
-import { createClient } from "@supabase/supabase-js";
+// utils/supabase.ts
+import { createClient } from '@supabase/supabase-js';
+import type { Database } from 'database.types.ts';
 
 // Environment variables
 const supabaseUrl = import.meta.env.SUPABASE_URL;
@@ -10,11 +12,10 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 // Create and export a single Supabase client instance
-export const supabase = createClient(supabaseUrl, supabaseKey, {
+export const supabase = createClient<Database>(supabaseUrl, supabaseKey, {
     auth: {
-        flowType: "pkce",                // Ensures secure OAuth flow
-        autoRefreshToken: true,          // Automatically refreshes tokens
-        detectSessionInUrl: false,       // Avoids handling sessions in URLs
-        persistSession: true,            // Saves the session across reloads
+        flowType: "pkce",  // Ensures secure OAuth flow
+        autoRefreshToken: false,  // Automatically refreshes tokens
+        persistSession: true,  // Saves the session across reloads
     },
 });
